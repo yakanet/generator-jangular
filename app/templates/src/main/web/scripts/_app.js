@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('<%= _.slugify(baseName) %>App', [
+angular.module('<%= _.camelize(baseName) %>App', [
         'ngCookies',
         'ngResource',
         'ngSanitize',

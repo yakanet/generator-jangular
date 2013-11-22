@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="styles/main.css">
 <!-- endbuild -->
 </head>
-<body ng-app="<%= _.slugify(baseName) %>App">
+<body ng-app="<%= _.camelize(baseName) %>App">
 	<div ng-view></div>
 	<!-- build:js scripts/modules.js -->
 	<script src="bower_components/angular/angular.js"></script>
