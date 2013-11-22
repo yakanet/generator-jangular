@@ -260,7 +260,7 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
-                        'bower_components/**/*',
+                        //'bower_components/**/*',
                         'images/{,*/}*.{gif,webp}',
                         'styles/fonts/*'
                     ]
@@ -312,23 +312,24 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%%= yeoman.dist %>/scripts',
-                    src: '*.js',
-                    dest: '<%%= yeoman.dist %>/scripts'
+                    cwd: '.tmp',
+                    src: ['**/*.js'],
+                    dest: '.tmp'
                 }]
             }
-        },
+        }/*,
+
         uglify: {
             dist: {
-                /*
+
                 files: {
                     '<%%= yeoman.dist %>/scripts/scripts.js': [
                         '<%%= yeoman.dist %>/scripts/scripts.js'
                     ]
                 }
-                */
+
             }
-        }
+        } */
     });
 
     grunt.registerTask('server', function (target) {
