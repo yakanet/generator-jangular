@@ -1,6 +1,6 @@
 {
     "name": "generator-jangular",
-    "version": "0.1",
+    "version": "0.0.1",
     "description": "Yeoman generator to quickstart a Maven + Guice + Jersey + Jackson + AngularJS",
     "keywords": [
         "maven", "guice", "jersey", "jackson", "angularjs",
