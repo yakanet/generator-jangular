@@ -35,17 +35,17 @@ MavenGenerator.prototype.askFor = function askFor() {
             name: 'packageName',
             message: '(2/2) What is your default package name?',
             default: 'com.mycompany.myapp'
-        }/*,
+        },
         {
             type: 'confirm',
             name: 'includeHibernate',
             message: '(3/6) Include hibernate ?',
             default: true
-        }*/
+        }
     ];
 
     this.prompt(prompts, function (props) {
-    //    this.includeHibernate = props.includeHibernate;
+        this.includeHibernate = props.includeHibernate;
         this.baseName = props.baseName;
         this.packageName = props.packageName;
         cb();
@@ -70,6 +70,17 @@ MavenGenerator.prototype.app = function app() {
     this.template('src/main/java/config/JerseyModule.java', srcFolder + 'config/JerseyModule.java');
     this.template('src/main/java/config/GuiceServletConfiguration.java', srcFolder + 'config/GuiceServletConfiguration.java');
     this.template('src/main/java/rest/HelloRestService.java', srcFolder + 'rest/HelloRestService.java');
+    if(this.includeHibernate){
+        this.template('src/main/java/config/JPAModule.java', srcFolder + 'config/JPAModule.java');
+        this.template('src/main/java/dao/api/GenericDao.java', srcFolder + 'dao/api/GenericDao.java');
+        this.template('src/main/java/dao/api/UserDao.java', srcFolder + 'dao/api/UserDao.java');
+        this.template('src/main/java/dao/impl/GenericJPADao.java', srcFolder + 'dao/impl/GenericJPADao.java');
+        this.template('src/main/java/dao/impl/UserJPADao.java', srcFolder + 'dao/impl/UserJPADao.java');
+        this.template('src/main/java/entity/User.java', srcFolder + 'entity/User.java');
+        this.template('src/main/java/rest/UserRestService.java', srcFolder + 'rest/UserRestService.java');
+
+        this.template('src/main/resources/META-INF/persistence.xml', 'src/main/resources/META-INF/persistence.xml');
+    }
 
     // Webapp folder
     this.copy('src/main/webapp/WEB-INF/web.xml', 'src/main/webapp/WEB-INF/web.xml');

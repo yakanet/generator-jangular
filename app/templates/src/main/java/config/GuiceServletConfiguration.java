@@ -13,6 +13,7 @@ public class GuiceServletConfiguration extends GuiceServletContextListener {
     protected Injector getInjector() {
         return Guice.createInjector(//
                 new RestModule(), //
+                <% if(includeHibernate) {%> new JPAModule(), // <% } %>
                 new JerseyModule()//
                 );
     }
