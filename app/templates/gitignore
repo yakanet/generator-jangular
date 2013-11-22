@@ -1,0 +1,5 @@
+node_modules
+target
+.tmp
+.sass-cache
+src/main/web/bower_components
