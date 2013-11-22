@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('tempApp'));
+  beforeEach(module('<%= _.camelize(baseName) %>App'));
 
   var MainCtrl,
     scope;

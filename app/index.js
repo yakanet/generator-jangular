@@ -84,7 +84,7 @@ MavenGenerator.prototype.app = function app() {
     this.copy('src/main/web/robots.txt', 'src/main/web/robots.txt');
 
     // Web test folder
-    this.copy('src/test/web/spec/controllers/main.js', 'src/test/web/spec/controllers/main.js');
+    this.template('src/test/web/spec/controllers/_main.js', 'src/test/web/spec/controllers/main.js');
 
     // Root folder
     this.copy('bowerrc', '.bowerrc');

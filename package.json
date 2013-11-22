@@ -1,14 +1,15 @@
 {
     "name": "generator-jangular",
-    "version": "0.0.0",
-    "description": "A generator for Yeoman",
+    "version": "0.1",
+    "description": "Yeoman generator to quickstart a Maven + Guice + Jersey + Jackson + AngularJS",
     "keywords": [
+        "maven", "guice", "jersey", "jackson", "angularjs",
         "yeoman-generator"
     ],
     "homepage": "https://github.com/yakanet/generator-jangular",
     "bugs": "https://github.com/yakanet/generator-jangular/issues",
     "author": {
-        "name": "",
+        "name": "Mathieu BROUTIN",
         "email": "",
         "url": "https://github.com/yakanet"
     },
