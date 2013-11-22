@@ -36,19 +36,19 @@ $ yo jangular
 ```
 
 ### Run your application in dev mode
-
+```
 $ mvn jetty:run
 $ grunt server
-
+```
 Your application should be available on http://localhost:9000. The grunt server will automatically forward your request send to /rest/* to the jetty backend.
 Each time you modify a static file (html, js, ...) your application should instantly be refreshed in your browser.
 Each time you modify a java file your application server (jetty) should apply your modifications after couple of seconds.
 
 ### Package your application
-
+```
 $ grunt
 $ mvn install
-
+```
 After executing these 2 commands, you should be able to find your war in the target directory.
 
 ### Getting To Know Yeoman
