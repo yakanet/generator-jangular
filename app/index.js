@@ -69,6 +69,7 @@ MavenGenerator.prototype.app = function app() {
     this.template('src/main/java/dao/impl/UserJPADao.java', srcFolder + 'dao/impl/UserJPADao.java');
     this.template('src/main/java/entity/User.java', srcFolder + 'entity/User.java');
     this.template('src/main/java/rest/UserRestService.java', srcFolder + 'rest/UserRestService.java');
+    this.template('src/main/java/provider/EntityManagerProvider.java', srcFolder + 'provider/EntityManagerProvider.java');
 
     this.template('src/main/resources/META-INF/persistence.xml', 'src/main/resources/META-INF/persistence.xml');
 
