@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+</head>
+<body ng-controller="DocCtrl">
+	<div>
+		<select ng-model="selected" ng-options="service for service in services">
+		</select>
+	</div>
+	<hr />
+	<div id="documentation"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script>
+	function loadXMLDoc(fname) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', fname, false);
+		xhr.send(null);
+		return xhr.responseXML.documentElement;
+	}
+	function displayResult(xmlUrl, dom)	{
+		var xml=loadXMLDoc(xmlUrl);
+		var xsl=loadXMLDoc("wadl/wadl.xsl");
+	
+		// code for IE
+		if (window.ActiveXObject)	  {
+			dom.innerHTML = xml.transformNode(xsl);
+	  	}
+	  	// code for Mozilla, Firefox, Opera, etc.
+	  	else if (document.implementation && document.implementation.createDocument) {
+	    	var xsltProcessor=new XSLTProcessor();
+	    	xsltProcessor.importStylesheet(xsl);
+	    	var resultDocument = xsltProcessor.transformToFragment(xml,document);
+	    	dom.innerHTML = '';	
+	    	dom.appendChild(resultDocument);
+	  	}
+	}
+	
+	function DocCtrl($scope, $http){
+		$scope.selected = null;
+		var baseUrl = "rest/"
+		$scope.url =  baseUrl + "user?_wadl";
+		$scope.$watch('selected', function(){
+			if($scope.selected){
+				var url = baseUrl + $scope.selected + "?_wadl";
+				$scope.url = url;
+				displayResult(url, document.getElementById("documentation"));
+			}
+		})
+		$scope.services = ["user", "hello"];
+	};
+	</script>
+</body>
+</html> 
