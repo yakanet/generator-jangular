@@ -6,8 +6,7 @@
 	version="1.0">
 
 	<!-- A JPA Persistence Unit -->
-	<persistence-unit name="<%= _.camelize(baseName) %>JpaUnit"
-		transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="<%= _.camelize(baseName) %>JpaUnit">
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 
         <!-- JPA entities must be registered here -->

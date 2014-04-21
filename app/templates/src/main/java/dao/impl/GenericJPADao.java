@@ -4,7 +4,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,6 +17,7 @@ public class GenericJPADao<TYPE, ID> implements GenericDao<TYPE, ID> {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @SuppressWarnings("unchecked")
     public GenericJPADao() {
         Type[] types = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments();
 
