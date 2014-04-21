@@ -1,6 +1,6 @@
 {
     "name": "generator-jangular",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Quickstart a Maven + CDI + TomEE + Jackson + AngularJS project",
     "keywords": [
         "maven", "cdi", "jersey", "tomee", "jackson", "angularjs",
