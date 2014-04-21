@@ -13,8 +13,8 @@
 </head>
 <body ng-app="<%= _.camelize(baseName) %>App" ng-controller="ApplicationCtrl">
     <div snap-drawer="left">
-        <ul>
-            <li ng-repeat="menu in menus" ng-class="{'active':$location.path() == menu.link}"><a href="#{{menu.link}}">{{menu.title}}</a></li>
+        <ul  class="nav nav-pills nav-stacked">
+            <li ng-repeat="menu in menus" snap-close ng-class="{'active':$location.path() == menu.link}"><a href="#{{menu.link}}">{{menu.title}}</a></li>
         </ul>
     </div>
     <div snap-content style="background:#fff"  data-snap-ignore="true">
