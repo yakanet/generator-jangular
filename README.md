@@ -45,10 +45,9 @@ Each time you modify a java file your application server (jetty) should apply yo
 
 ### Package your application
 ```
-$ grunt
-$ mvn install
+$ mvn install -Pbuild
 ```
-After executing these 2 commands, you should be able to find your war in the target directory.
+After executing this command, you should be able to find your war in the target directory.
 
 ### Getting To Know Yeoman
 
