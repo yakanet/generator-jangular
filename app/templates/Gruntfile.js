@@ -93,7 +93,14 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    base: '<%%= yeoman.dist %>'
+                    open: true,
+                    base: '<%%= yeoman.dist %>',
+                    middleware: function (connect) {
+                        return [
+                            proxySnippet,
+                            connect.static(require('path').resolve('target/yeoman-dist'))
+                        ];
+                    }
                 }
             }
         },
@@ -214,7 +221,6 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
-                        //'bower_components/**/*',
                         'images/{,*/}*.{gif,webp}',
                         'styles/fonts/*'
                     ]
@@ -224,6 +230,14 @@ module.exports = function (grunt) {
                     dest: '<%%= yeoman.dist %>/images',
                     src: [
                         'generated/*'
+                    ]
+                }, {
+                    expand:true,
+                    flatten: true,
+                    cwd: 'src/main/web',
+                    dest: '<%%= yeoman.dist %>/fonts',
+                    src: [
+                        'bower_components/bootstrap/dist/fonts/*'
                     ]
                 }]
             },
@@ -285,7 +299,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
+            return grunt.task.run(['build',  'configureProxies', 'connect:dist:keepalive']);
         }
 
         grunt.task.run([

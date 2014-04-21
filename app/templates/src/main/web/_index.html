@@ -3,18 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title></title>
-<!-- build:css(.tmp) styles/main.css -->
+<!-- build:css styles/main.css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
 <link rel="stylesheet" href="styles/main.css">
 <!-- endbuild -->
 </head>
 <body ng-app="<%= _.camelize(baseName) %>App">
 	<div ng-view></div>
 	<!-- build:js scripts/modules.js -->
-	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-resource/angular-resource.js"></script>
-	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-	<script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js"></script>
 	<!-- endbuild -->
 
 	<!-- build:js scripts/scripts.js -->

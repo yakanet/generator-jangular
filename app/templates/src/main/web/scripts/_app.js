@@ -4,7 +4,8 @@ angular.module('<%= _.camelize(baseName) %>App', [
         'ngCookies',
         'ngResource',
         'ngSanitize',
-        'ngRoute'
+        'ngRoute',
+        'ui.bootstrap'
     ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
