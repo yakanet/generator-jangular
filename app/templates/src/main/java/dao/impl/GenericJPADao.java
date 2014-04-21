@@ -5,13 +5,17 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import <%= packageName %>.dao.api.GenericDao;
 
+@Stateful
 public class GenericJPADao<TYPE, ID> implements GenericDao<TYPE, ID> {
 
     private Class<TYPE> targetClass;
+    @PersistenceContext
     private EntityManager entityManager;
 
     public GenericJPADao() {
@@ -23,17 +27,6 @@ public class GenericJPADao<TYPE, ID> implements GenericDao<TYPE, ID> {
         } else {
             targetClass = (Class<TYPE>) types[0];
         }
-    }
-
-    /**
-     * Set entity manager.
-     * 
-     * @param entityManager
-     *            entity manager
-     */
-    @Inject
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
     }
 
     @Override
