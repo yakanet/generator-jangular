@@ -1,7 +1,6 @@
-# generator-jangular [![Build Status](https://secure.travis-ci.org/yakanet/generator-jangular.png?branch=master)](https://travis-ci.org/yakanet/generator-jangular)
+# generator-jangular
 
 A generator for [Yeoman](http://yeoman.io).
-
 
 ## Getting Started
 
@@ -37,10 +36,10 @@ $ yo jangular
 
 ### Run your application in dev mode
 ```
-$ mvn jetty:run
+$ mvn tomee:run
 $ grunt server
 ```
-Your application should be available on http://localhost:9000. The grunt server will automatically forward your request /rest/* to the jetty backend.
+Your application should be available on http://localhost:9000/. The grunt server will automatically forward your request /rest/* to the jetty backend.
 Each time you modify a static file (html, js, ...) your application should instantly be refreshed in your browser.
 Each time you modify a java file your application server (jetty) should apply your modifications after couple of seconds.
 

@@ -2,6 +2,8 @@ package <%= packageName %>.rest;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.validation.Validation;
@@ -17,11 +19,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.google.inject.persist.Transactional;
+import com.mycompany.myapp.dao.api.UserDao;
+import com.mycompany.myapp.entity.User;
 
-import <%= packageName %>.dao.api.UserDao;
-import <%= packageName %>.entity.User;
-
+@Stateless
+@LocalBean
 @Path("/user")
 public class UserRestService {
 
@@ -52,7 +54,6 @@ public class UserRestService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    @Transactional
     public Response addUser(@Valid User user) {
         if (userDao.findByUsername(user.getUsername()) != null) {
             return Response.status(Status.CONFLICT).build();

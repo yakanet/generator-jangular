@@ -20,10 +20,6 @@ module.exports = function (grunt) {
             dist: 'target/yeoman-dist'
         },
         watch: {
-            compass: {
-                files: ['src/main/web/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass:server', 'autoprefixer']
-            },
             styles: {
                 files: ['src/main/web/styles/{,*/}*.css'],
                 tasks: ['copy:styles', 'autoprefixer']
@@ -58,8 +54,11 @@ module.exports = function (grunt) {
                     host: 'localhost',
                     port: 8080,
                     https: false,
-                    changeOrigin: false
-                },
+                    changeOrigin: false,
+                    rewrite: {
+                        'rest': '<%= _.slugify(baseName) %>-<%= version %>/rest'
+                    }
+                }
             ],
             options: {
                 port: 9000,
@@ -119,51 +118,6 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 'src/main/web/scripts/{,*/}*.js'
             ]
-        },
-        coffee: {
-            options: {
-                sourceMap: true,
-                sourceRoot: ''
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/main/web/scripts',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/scripts',
-                    ext: '.js'
-                }]
-            },
-            test: {
-                files: [{
-                    expand: true,
-                    cwd: 'test/spec',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
-                    ext: '.js'
-                }]
-            }
-        },
-        compass: {
-            options: {
-                sassDir: 'src/main/scss',
-                cssDir: 'src/main/web/styles',
-                generatedImagesDir: '.tmp/images/generated',
-                imagesDir: 'src/main/web/images',
-                javascriptsDir: 'src/main/web/scripts',
-                fontsDir: 'src/main/web/styles/fonts',
-                importPath: 'src/main/web/bower_components',
-                httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
-                httpFontsPath: '/styles/fonts',
-                relativeAssets: false
-            },
-            dist: {},
-            server: {
-                options: {
-                    debugInfo: true
-                }
-            }
         },
         // not used since Uglify task does concat,
         // but still available if needed
@@ -282,15 +236,12 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'compass:server',
                 'copy:styles'
             ],
             test: [
-                'compass',
                 'copy:styles'
             ],
             dist: [
-                'compass:dist',
                 'copy:styles',
                 'imagemin',
                 'svgmin',

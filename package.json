@@ -1,9 +1,9 @@
 {
     "name": "generator-jangular",
     "version": "0.0.2",
-    "description": "Quickstart a Maven + Guice + Jersey + Jackson + AngularJS project",
+    "description": "Quickstart a Maven + CDI + TomEE + Jackson + AngularJS project",
     "keywords": [
-        "maven", "guice", "jersey", "jackson", "angularjs",
+        "maven", "cdi", "jersey", "tomee", "jackson", "angularjs",
         "yeoman-generator"
     ],
     "homepage": "https://github.com/yakanet/generator-jangular",
