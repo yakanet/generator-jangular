@@ -75,6 +75,7 @@ MavenGenerator.prototype.app = function app() {
     // Webapp folder
     this.copy('src/main/webapp/WEB-INF/web.xml', 'src/main/webapp/WEB-INF/web.xml');
     this.copy('src/main/webapp/WEB-INF/openejb-jar.xml', 'src/main/webapp/WEB-INF/openejb-jar.xml');
+    this.copy('src/main/webapp/WEB-INF/beans.xml', 'src/main/webapp/WEB-INF/beans.xml');
 
     // Web folder
     this.template('src/main/web/_index.html', 'src/main/web/index.html');
