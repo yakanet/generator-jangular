@@ -27,25 +27,18 @@ MavenGenerator.prototype.askFor = function askFor() {
         {
             type: 'input',
             name: 'baseName',
-            message: '(1/3) What is the base name of your application?',
+            message: '(1/2) What is the base name of your application?',
             default: 'example'
         },
         {
             type: 'input',
             name: 'packageName',
-            message: '(2/3) What is your default package name?',
+            message: '(2/2) What is your default package name?',
             default: 'com.mycompany.myapp'
-        },
-        {
-            type: 'confirm',
-            name: 'includeHibernate',
-            message: '(3/3) Include hibernate ?',
-            default: true
         }
     ];
 
     this.prompt(prompts, function (props) {
-        this.includeHibernate = props.includeHibernate;
         this.baseName = props.baseName;
         this.packageName = props.packageName;
         this.version = '1.0-SNAPSHOT';
