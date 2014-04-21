@@ -8,7 +8,8 @@
         "angular-cookies": "~1.2.0",
         "angular-sanitize": "~1.2.0",
         "angular-ui-bootstrap-bower": "~0.10.0",
-        "bootstrap": "~3.1.1"
+        "bootstrap": "~3.1.1",
+        "angular-snap": "~1.4.1"
     },
     "devDependencies": {
         "angular-mocks": "~1.2.0",

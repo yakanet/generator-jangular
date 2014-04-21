@@ -5,15 +5,20 @@ angular.module('<%= _.camelize(baseName) %>App', [
         'ngResource',
         'ngSanitize',
         'ngRoute',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'snap'
     ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
-            .when('/', {
+            .when('/dashboard', {
+                templateUrl: 'views/main.html',
+                controller: 'MainCtrl'
+            })
+            .when('/users', {
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/dashboard'
             });
     }]);

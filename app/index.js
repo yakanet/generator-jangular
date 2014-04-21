@@ -84,6 +84,7 @@ MavenGenerator.prototype.app = function app() {
     this.copy('src/main/web/views/main.html', 'src/main/web/views/main.html');
     this.template('src/main/web/scripts/_app.js', 'src/main/web/scripts/app.js');
     this.template('src/main/web/scripts/controllers/_main.js', 'src/main/web/scripts/controllers/main.js');
+    this.template('src/main/web/scripts/controllers/_application-ctrl.js', 'src/main/web/scripts/controllers/application-ctrl.js');
     this.copy('src/main/web/styles/main.css', 'src/main/web/styles/main.css');
     this.copy('src/main/web/favicon.ico', 'src/main/web/favicon.ico');
     this.copy('src/main/web/robots.txt', 'src/main/web/robots.txt');
