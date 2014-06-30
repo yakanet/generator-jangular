@@ -19,8 +19,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import com.mycompany.myapp.dao.api.UserDao;
-import com.mycompany.myapp.entity.User;
+import <%= packageName %>.dao.api.UserDao;
+import <%= packageName %>.entity.User;
 
 @Stateless
 @LocalBean
