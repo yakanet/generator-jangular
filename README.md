@@ -36,7 +36,7 @@ $ yo jangular
 
 ### Run your application in dev mode
 ```
-$ mvn tomee:run
+$ mvn clean install tomee:run
 $ grunt server
 ```
 Your application should be available on http://localhost:9000/. The grunt server will automatically forward your request /rest/* to the jetty backend.
